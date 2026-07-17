@@ -58,14 +58,19 @@ Reducir el umbral recuperó positivos que el escenario principal habría omitido
 ```text
 diabetes-risk-classification/
 ├── README.md
+├── README_EN.md
 ├── data/
 │   └── diabetes.csv
 ├── notebooks/
-│   ├── 01_eda_calidad_datos.ipynb
-│   ├── 02_modelado_comparacion.ipynb
-│   └── 03_evaluacion_interpretacion.ipynb
-├── docs/
-│   └── guia_estudio_y_defensa.md
+│   ├── 01_diabetes_eda_calidad_datos.ipynb
+│   ├── 02_diabetes_modelado_comparacion_estrategias.ipynb
+│   └── 03_diabetes_evaluacion_interpretacion.ipynb
+├── images/
+│   ├── missing_values.png
+│   ├── values_distribution.png
+│   ├── values_correlation.png
+│   ├── model_comparison.png
+│   └── confusion_matrices.png
 ├── requirements.txt
 ├── .gitignore
 └── LICENSE
@@ -76,7 +81,7 @@ diabetes-risk-classification/
 Requiere Python 3.10 o posterior.
 
 ```bash
-git clone URL_DEL_REPOSITORIO
+git clone https://github.com/dualmapa/diabetes-risk-classification.git
 cd diabetes-risk-classification
 python -m venv .venv
 ```
