@@ -1,5 +1,7 @@
 # Clasificación del riesgo de diabetes
 
+[English version](README_EN.md)
+
 Proyecto de análisis de datos y aprendizaje automático orientado a comparar estrategias de tratamiento de datos faltantes y modelos de clasificación sobre el **Pima Indians Diabetes Dataset**.
 
 El trabajo prioriza la trazabilidad metodológica: auditoría de calidad, prevención de fuga de información, validación cruzada estratificada, calibración de probabilidades, selección de umbrales e incertidumbre de las métricas.
@@ -30,6 +32,24 @@ La pregunta principal fue:
 9. Evaluación única sobre prueba, bootstrap estratificado e interpretación de coeficientes.
 
 Todo el preprocesamiento se incorporó en pipelines para evitar que la imputación o el escalado aprendieran información de los pliegues de validación o del conjunto de prueba.
+
+### Datos faltantes encubiertos
+
+![Porcentaje de valores faltantes encubiertos](images/missing_values.png)
+
+Aunque el archivo no presenta valores `NaN` explícitos, algunas mediciones contienen ceros clínicamente no plausibles. El problema es especialmente relevante en insulina y grosor de piel.
+
+### Comparación de modelos
+
+![Comparación de modelos ajustados](images/model_comparison.png)
+
+Los tres modelos presentaron una capacidad de discriminación similar. La regresión logística fue seleccionada por su equilibrio entre desempeño, sensibilidad, estabilidad e interpretabilidad.
+
+### Matrices de confusión
+
+![Matrices de confusión según el umbral](images/confusion_matrices.png)
+
+La reducción del umbral disminuyó los falsos negativos, aunque incrementó los falsos positivos. Este resultado muestra cómo una decisión sobre el umbral modifica el uso potencial del modelo.
 
 ## Resultados principales
 
@@ -75,6 +95,11 @@ diabetes-risk-classification/
 ├── .gitignore
 └── LICENSE
 ```
+## Notebooks
+
+1. [Exploración y calidad de los datos](notebooks/01_diabetes_eda_calidad_datos.ipynb)
+2. [Comparación de estrategias y modelos](notebooks/02_diabetes_modelado_comparacion_estrategias.ipynb)
+3. [Evaluación final e interpretación](notebooks/03_diabetes_evaluacion_interpretacion.ipynb)
 
 ## Ejecución local
 
@@ -123,6 +148,9 @@ Los notebooks deben ejecutarse desde la raíz del repositorio y en orden numéri
 Versión utilizada: [Diabetes Dataset en Kaggle](https://www.kaggle.com/datasets/mathchi/diabetes-data-set), publicada con licencia **CC0: Public Domain**.
 
 La base corresponde a una población histórica y específica. Por ello, los resultados no deben generalizarse automáticamente a otras poblaciones o contextos clínicos.
+
+
+
 
 ## Limitaciones
 

@@ -33,6 +33,24 @@ The main analytical question was:
 
 All preprocessing steps were included in pipelines to prevent the imputer or scaler from learning information from validation folds or the test set.
 
+### Hidden missing values
+
+![Percentage of hidden missing values](images/missing_values.png)
+
+Although the dataset contains no explicit `NaN` values, several measurements include clinically implausible zeros. The issue is particularly important for insulin and skin-thickness measurements.
+
+### Model comparison
+
+![Comparison of tuned models](images/model_comparison.png)
+
+The three models achieved similar discrimination. Logistic regression was selected for its balance of performance, sensitivity, stability, and interpretability.
+
+### Confusion matrices
+
+![Confusion matrices by classification threshold](images/confusion_matrices.png)
+
+Lowering the classification threshold reduced false negatives while increasing false positives. This illustrates how threshold selection changes the model's potential operational use.
+
 ## Key results
 
 Regularized logistic regression was selected for its balance of discrimination, sensitivity, stability, and interpretability. It achieved a mean cross-validated ROC-AUC of approximately `0.844`.
@@ -77,6 +95,12 @@ diabetes-risk-classification/
 ├── .gitignore
 └── LICENSE
 ```
+
+## Notebooks
+
+1. [Data exploration and quality assessment](notebooks/01_diabetes_eda_calidad_datos.ipynb)
+2. [Preprocessing strategy and model comparison](notebooks/02_diabetes_modelado_comparacion_estrategias.ipynb)
+3. [Final evaluation and interpretation](notebooks/03_diabetes_evaluacion_interpretacion.ipynb)
 
 ## Running the project locally
 
